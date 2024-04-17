@@ -91,4 +91,15 @@ In this tutorial, we used RwLock<> to synchronize access to a Vec of notificatio
 2. In this tutorial, we used lazy_static external library to define Vec and DashMap as a “static” variable. Compared to Java where we can mutate the content of a static variable via a static function, why did not Rust allow us to do so?
 
 In Rust, we use the lazy_static library for defining `static variables` because Rust, by default, doesn't allow mutable static variables. Unlike Java, where you can mutate static variables directly, Rust requires using special types like Mutex<> or RwLock<> inside static variables to safely manage concurrent mutations. 
+
 #### Reflection Subscriber-2
+1. Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
+
+It uses lazy_static to initialize the HTTP client and load application configurations, which include URLs and the server name, from environment variables or default values. Defines a custom error type (Error) and an ErrorResponse struct to format and return error messages consistently using Rocket's response mechanism.
+2. Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
+
+The Observer pattern simplifies adding new subscribers by maintaining a list of observers. 
+
+3. Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
+
+I haven't yet tried creating my own tests or improving the documentation in my Postman collection. However, I believe that these features will be very useful for my group project.
